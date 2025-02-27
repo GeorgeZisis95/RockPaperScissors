@@ -62,17 +62,16 @@ function playRound(playerChoice, computerChoice) {
     }
 }
 
-    
-// const playerSelection = getPlayerChoice(); 
-// const computerSelection = getComputerChoice();
-
 function gameLoop() {
+    const playerSelection = getPlayerChoice(); 
+    const computerSelection = getComputerChoice();
+
     let playerScore = 0; 
     let computerScore = 0;
     
     while (true) {
 
-        let result = playRound(getPlayerChoice(), getComputerChoice());
+        let result = playRound(playerSelection, computerSelection);
 
         if (result === "YOU WIN") {
                 playerScore++;
@@ -89,4 +88,14 @@ function gameLoop() {
     }
 }
 
-gameLoop()
+// gameLoop()
+
+const computerSelection = getComputerChoice();
+
+const btnRock = document.querySelector("#btnRock");
+const btnPaper = document.querySelector("#btnPaper");
+const btnScissors = document.querySelector("#btnScissors");
+
+btnRock.addEventListener("click", () => playRound("rock", computerSelection));
+btnPaper.addEventListener("click", () => playRound("paper", computerSelection));
+btnScissors.addEventListener("click", () => playRound("scissors", computerSelection));
